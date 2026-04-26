@@ -4,6 +4,7 @@ import type { TabsProps } from 'antd';
 import { IResume } from "@/types/backend";
 import { useState, useEffect } from 'react';
 import { callFetchResumeByUser } from "@/config/api";
+import { withBackendUrl } from "@/config/runtime";
 import type { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
 
@@ -70,7 +71,7 @@ const UserResume = (props: any) => {
             render(value, record, index) {
                 return (
                     <a
-                        href={`${import.meta.env.VITE_BACKEND_URL}/storage/resume/${record?.url}`}
+                                    href={withBackendUrl(`/storage/resume/${record?.url}`)}
                         target="_blank"
                     >Chi tiết</a>
                 )

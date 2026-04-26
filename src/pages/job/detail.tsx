@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { IJob } from "@/types/backend";
 import { callFetchJobById } from "@/config/api";
+import { withBackendUrl } from "@/config/runtime";
 import styles from 'styles/client.module.scss';
 import parse from 'html-react-parser';
 import { Col, Divider, Row, Skeleton, Tag } from "antd";
@@ -85,7 +86,7 @@ const ClientJobDetailPage = (props: any) => {
                                         <img
                                             width={"200px"}
                                             alt="example"
-                                            src={`${import.meta.env.VITE_BACKEND_URL}/storage/company/${jobDetail.company?.logo}`}
+                                    src={withBackendUrl(`/storage/company/${jobDetail.company?.logo}`)}
                                         />
                                     </div>
                                     <div>

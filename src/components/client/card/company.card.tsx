@@ -1,4 +1,5 @@
 import { callFetchCompany } from '@/config/api';
+import { withBackendUrl } from '@/config/runtime';
 import { convertSlug } from '@/config/utils';
 import { ICompany } from '@/types/backend';
 import { Card, Col, Divider, Empty, Pagination, Row, Spin } from 'antd';
@@ -90,7 +91,7 @@ const CompanyCard = (props: IProps) => {
                                                 <img
                                                     style={{ maxWidth: "200px" }}
                                                     alt="example"
-                                                    src={`${import.meta.env.VITE_BACKEND_URL}/storage/company/${item?.logo}`}
+                                    src={withBackendUrl(`/storage/company/${item?.logo}`)}
                                                 />
                                             </div>
                                         }

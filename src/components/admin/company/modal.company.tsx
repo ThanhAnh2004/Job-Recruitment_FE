@@ -7,6 +7,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useEffect, useState } from "react";
 import { callCreateCompany, callUpdateCompany, callUploadSingleFile } from "@/config/api";
+import { withBackendUrl } from "@/config/runtime";
 import { ICompany } from "@/types/backend";
 import { v4 as uuidv4 } from 'uuid';
 import enUS from 'antd/lib/locale/en_US';
@@ -250,7 +251,7 @@ const ModalCompany = (props: IProps) => {
                                                             uid: uuidv4(),
                                                             name: dataInit?.logo ?? "",
                                                             status: 'done',
-                                                            url: `${import.meta.env.VITE_BACKEND_URL}/storage/company/${dataInit?.logo}`,
+                                                url: withBackendUrl(`/storage/company/${dataInit?.logo}`),
                                                         }
                                                     ] : []
                                             }

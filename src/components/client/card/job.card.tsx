@@ -1,4 +1,5 @@
 import { callFetchJob } from '@/config/api';
+import { withBackendUrl } from '@/config/runtime';
 import { convertSlug, getLocationName } from '@/config/utils';
 import { IJob } from '@/types/backend';
 import { EnvironmentOutlined, ThunderboltOutlined } from '@ant-design/icons';
@@ -114,7 +115,7 @@ const JobCard = (props: IProps) => {
                                             <div className={styles["card-job-left"]}>
                                                 <img
                                                     alt="example"
-                                                    src={`${import.meta.env.VITE_BACKEND_URL}/storage/company/${item?.company?.logo}`}
+                                    src={withBackendUrl(`/storage/company/${item?.company?.logo}`)}
                                                 />
                                             </div>
                                             <div className={styles["card-job-right"]}>

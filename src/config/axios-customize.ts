@@ -4,6 +4,7 @@ import axiosClient from "axios";
 import { store } from "@/redux/store";
 import { setRefreshTokenAction } from "@/redux/slice/accountSlide";
 import { notification } from "antd";
+import { BACKEND_URL } from "./runtime";
 interface AccessTokenResponse {
     access_token: string;
 }
@@ -27,7 +28,7 @@ const isPublicGetRequest = (config: any) => {
  */
 
 const instance = axiosClient.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL as string,
+    baseURL: BACKEND_URL,
     withCredentials: true
 });
 
